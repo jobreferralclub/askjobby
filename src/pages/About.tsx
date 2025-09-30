@@ -41,7 +41,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-background/90 border-b border-border">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
             <img src={askJobbyLogo} alt="AskJobby" className="w-16 h-16 rounded-full" />
             <h1 className="text-xl font-bold text-gradient">AskJobby</h1>
