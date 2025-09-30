@@ -1,41 +1,42 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Users, Clock, Award, TrendingUp, CheckCircle, ArrowRight, Calendar, Globe, Target } from "lucide-react";
+import { Star, Users, Clock, Award, TrendingUp, CheckCircle, Calendar, Heart, Sparkles } from "lucide-react";
 import askJobbyLogo from "@/assets/askjobby-logo.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+import { Link } from "react-router-dom";
 
 const Index = () => {
-  const careerTips = [
+  const whyFreeReasons = [
     {
-      icon: <Target className="w-6 h-6" />,
-      title: "Set Clear Career Goals",
-      description: "Define your professional aspirations and create a roadmap to achieve them with actionable milestones."
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Continuous Learning",
-      description: "Stay ahead by constantly upgrading your skills and adapting to industry trends and changes."
+      icon: <Heart className="w-6 h-6" />,
+      title: "Passion for Empowerment",
+      description: "We believe everyone deserves access to quality career guidance, regardless of their financial situation."
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Build Professional Networks",
-      description: "Cultivate meaningful relationships within your industry to unlock new opportunities and insights."
+      title: "Building Community",
+      description: "By offering free sessions, we create a supportive community of professionals helping each other grow."
     },
     {
-      icon: <Globe className="w-6 h-6" />,
-      title: "Personal Branding",
-      description: "Develop a strong online presence and professional brand that reflects your expertise and values."
+      icon: <Sparkles className="w-6 h-6" />,
+      title: "Sharing Knowledge",
+      description: "Our mission is to democratize career success by freely sharing insights and strategies that work."
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Your Success is Our Success",
+      description: "Seeing you advance in your career and achieve your goals is the greatest reward for our work."
     }
   ];
 
-  const benefits = [
-    "1-on-1 personalized career coaching sessions",
-    "Industry-specific guidance and insights",
-    "Resume and LinkedIn profile optimization",
-    "Interview preparation and mock sessions",
-    "Salary negotiation strategies",
-    "Career transition planning and support"
+  const weeklySessionBenefits = [
+    "Live Q&A with career experts every Friday",
+    "Real-time guidance on your career challenges",
+    "Industry insights and job market trends",
+    "Networking with like-minded professionals",
+    "Practical tips you can apply immediately",
+    "Supportive community of career-driven individuals"
   ];
 
   return (
@@ -43,18 +44,19 @@ const Index = () => {
       {/* Header */}
       <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-background/90 border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3">
             <img src={askJobbyLogo} alt="AskJobby" className="w-12 h-12 rounded-full" />
             <h1 className="text-xl font-bold text-gradient">AskJobby</h1>
-          </div>
+          </Link>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-foreground/80 hover:text-primary transition-smooth">About</a>
-            <a href="#tips" className="text-foreground/80 hover:text-primary transition-smooth">Career Tips</a>
-            <a href="#book" className="text-foreground/80 hover:text-primary transition-smooth">Book Session</a>
+            <Link to="/" className="text-primary font-semibold">Home</Link>
+            <Link to="/about" className="text-foreground/80 hover:text-primary transition-smooth">About</Link>
+            <Link to="/career-tips" className="text-foreground/80 hover:text-primary transition-smooth">Career Tips</Link>
+            <Link to="/contact" className="text-foreground/80 hover:text-primary transition-smooth">Contact</Link>
           </nav>
           <Button variant="hero" size="sm" asChild>
-            <a href="https://tidycal.com/team/askjobby/askjobby-session" target="_blank" rel="noopener noreferrer">
-              Book Now
+            <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+              Join Session
             </a>
           </Button>
         </div>
@@ -71,36 +73,33 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="animate-fade-in">
             <div className="mb-8">
-              <img src={askJobbyLogo} alt="AskJobby" className="w-24 h-24 mx-auto rounded-full animate-float glow-effect" />
+              <img src={askJobbyLogo} alt="AskJobby" className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full animate-float glow-effect" />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="text-gradient">AskJobby</span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/90 mb-4 max-w-3xl mx-auto">
-              Accelerate Your Career Growth with Expert Guidance
+              Free Weekly Career Coaching Sessions Every Friday
             </p>
             <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
-              Transform your professional journey with personalized career coaching sessions designed to unlock your potential and achieve your goals.
+              Join our live online sessions where we share career tips, guidance, and answer your questions in real-time. Transform your professional journey with expert insights and a supportive community.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="cta" size="xl" asChild>
-                <a href="https://tidycal.com/team/askjobby/askjobby-session" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
                   <Calendar className="w-5 h-5 mr-2" />
-                  Book Your Session Today
+                  Join Weekly Free Session
                 </a>
-              </Button>
-              <Button variant="outline" size="lg">
-                Learn More <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
             <div className="mt-12 flex justify-center items-center space-x-8 text-sm text-foreground/60">
               <div className="flex items-center space-x-2">
                 <Star className="w-4 h-4 text-primary" />
-                <span>5.0 Rating</span>
+                <span>Free Sessions</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Users className="w-4 h-4 text-primary" />
-                <span>500+ Clients</span>
+                <span>Every Friday</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Award className="w-4 h-4 text-primary" />
@@ -111,25 +110,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Weekly Session Section */}
       <section id="about" className="py-20 bg-card/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
-            <Badge variant="secondary" className="mb-4">Why Choose AskJobby?</Badge>
+            <Badge variant="secondary" className="mb-4">Free Weekly Sessions</Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">
-              Your Partner in Professional Success
+              Join Our Friday Career Coaching Sessions
             </h2>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              At AskJobby, we believe every professional deserves personalized guidance to reach their career aspirations. 
-              Our expert coaching sessions are tailored to your unique situation, helping you navigate challenges and seize opportunities.
+              Every Friday, we host live online sessions where professionals like you gather to learn, grow, and get answers to their career questions. 
+              It's completely free, interactive, and designed to give you actionable insights you can apply immediately to your career.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="animate-fade-in-left">
-              <h3 className="text-2xl font-bold mb-6">What You'll Get:</h3>
+              <h3 className="text-2xl font-bold mb-6">What You'll Experience:</h3>
               <div className="space-y-4">
-                {benefits.map((benefit, index) => (
+                {weeklySessionBenefits.map((benefit, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-foreground/90">{benefit}</span>
@@ -140,13 +139,18 @@ const Index = () => {
             <div className="animate-fade-in-right">
               <Card className="p-6 card-gradient card-shadow">
                 <div className="text-center">
-                  <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold mb-2">60-Minute Sessions</h4>
+                  <Calendar className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h4 className="text-xl font-semibold mb-2">Every Friday</h4>
                   <p className="text-foreground/70 mb-4">
-                    Comprehensive coaching sessions designed to provide maximum value and actionable insights.
+                    Join our live session to get real-time career guidance, ask questions, and connect with professionals on similar journeys.
                   </p>
-                  <div className="text-3xl font-bold text-gradient mb-2">$99</div>
-                  <p className="text-sm text-foreground/60">Per session</p>
+                  <div className="text-3xl font-bold text-gradient mb-2">100% Free</div>
+                  <p className="text-sm text-foreground/60 mb-6">No hidden costs, ever</p>
+                  <Button variant="cta" size="lg" className="w-full" asChild>
+                    <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+                      Register Now
+                    </a>
+                  </Button>
                 </div>
               </Card>
             </div>
@@ -154,49 +158,50 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Career Tips Section */}
-      <section id="tips" className="py-20">
+      {/* Why Free Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
-            <Badge variant="secondary" className="mb-4">Free Knowledge</Badge>
+            <Badge variant="secondary" className="mb-4">Our Mission</Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">
-              Career Growth Tips & Insights
+              Why Is It Free?
             </h2>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Get started with these proven strategies that successful professionals use to advance their careers.
+              We believe career growth shouldn't be limited by financial barriers. Here's why we offer our sessions for free:
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {careerTips.map((tip, index) => (
+            {whyFreeReasons.map((reason, index) => (
               <Card key={index} className="p-6 card-gradient card-shadow hover:scale-105 transition-bounce animate-scale-in">
-                <div className="text-primary mb-4">{tip.icon}</div>
-                <h3 className="text-lg font-semibold mb-3">{tip.title}</h3>
-                <p className="text-foreground/70 text-sm leading-relaxed">{tip.description}</p>
+                <div className="text-primary mb-4">{reason.icon}</div>
+                <h3 className="text-lg font-semibold mb-3">{reason.title}</h3>
+                <p className="text-foreground/70 text-sm leading-relaxed">{reason.description}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
+
       {/* CTA Section */}
       <section id="book" className="py-20 bg-card/30">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Transform Your Career?
+              Ready to Accelerate Your Career?
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              Take the first step towards your professional success. Book a personalized coaching session today and start your journey to career excellence.
+              Join our free Friday sessions and be part of a community committed to professional growth. Get real answers, actionable strategies, and the support you need to succeed.
             </p>
             <Button variant="cta" size="xl" asChild>
-              <a href="https://tidycal.com/team/askjobby/askjobby-session" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
                 <Calendar className="w-5 h-5 mr-2" />
-                Schedule Your Session Now
+                Join Weekly Free Session
               </a>
             </Button>
             <p className="mt-4 text-sm text-foreground/60">
-              Available for sessions worldwide • Flexible scheduling • Money-back guarantee
+              Every Friday • Live Q&A • 100% Free • No Registration Fee
             </p>
           </div>
         </div>
@@ -206,16 +211,16 @@ const Index = () => {
       <footer className="py-12 border-t border-border">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
+            <Link to="/" className="flex items-center space-x-3 mb-4 md:mb-0">
               <img src={askJobbyLogo} alt="AskJobby" className="w-10 h-10 rounded-full" />
               <span className="text-lg font-semibold text-gradient">AskJobby</span>
-            </div>
+            </Link>
             <div className="text-center md:text-right">
               <p className="text-foreground/60 text-sm">
                 © 2024 AskJobby. Empowering careers worldwide.
               </p>
               <p className="text-foreground/50 text-xs mt-1">
-                Professional career coaching and development services
+                Weekly free career coaching sessions every Friday
               </p>
             </div>
           </div>
