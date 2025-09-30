@@ -70,10 +70,10 @@ const Index = () => {
         />
         <div className="absolute inset-0 hero-gradient opacity-90" />
         
-        <div className="relative z-10 container mx-auto px-4 text-center pt-32 md:pt-40">
+        <div className="relative z-10 container mx-auto px-4 text-center pt-20 md:pt-28">
           <div className="animate-fade-in">
             <div className="mb-8">
-              <img src={askJobbyLogo} alt="AskJobby" className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full animate-float glow-effect mt-8" />
+              <img src={askJobbyLogo} alt="AskJobby" className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full animate-float glow-effect" />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="text-gradient">AskJobby</span>
