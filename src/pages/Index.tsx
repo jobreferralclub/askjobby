@@ -92,7 +92,7 @@ const Index = () => {
                 </a>
               </Button>
             </div>
-            <div className="mt-12 flex justify-center items-center space-x-8 text-sm text-foreground/60">
+            <div className="mt-8 flex justify-center items-center space-x-8 text-sm text-foreground/60">
               <div className="flex items-center space-x-2">
                 <Star className="w-4 h-4 text-primary" />
                 <span>Free Sessions</span>
