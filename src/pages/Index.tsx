@@ -65,7 +65,7 @@ const Index = () => {
             <Link to="/" className="text-primary font-semibold">Home</Link>
             <Link to="/about" className="text-foreground/80 hover:text-primary transition-smooth">About</Link>
             <Link to="/career-tips" className="text-foreground/80 hover:text-primary transition-smooth">Career Tips</Link>
-            <Link to="/pre-sessions" className="text-foreground/80 hover:text-primary transition-smooth">Pre Sessions</Link>
+            <Link to="/past-sessions" className="text-foreground/80 hover:text-primary transition-smooth">Past Sessions</Link>
             <Link to="/contact" className="text-foreground/80 hover:text-primary transition-smooth">Contact</Link>
           </nav>
           <div className="md:hidden">
@@ -75,7 +75,7 @@ const Index = () => {
                 <Link to="/" className="px-4 py-2 hover:bg-accent/10">Home</Link>
                 <Link to="/about" className="px-4 py-2 hover:bg-accent/10">About</Link>
                 <Link to="/career-tips" className="px-4 py-2 hover:bg-accent/10">Career Tips</Link>
-                <Link to="/pre-sessions" className="px-4 py-2 hover:bg-accent/10">Pre Sessions</Link>
+                <Link to="/past-sessions" className="px-4 py-2 hover:bg-accent/10">Past Sessions</Link>
                 <Link to="/contact" className="px-4 py-2 hover:bg-accent/10">Contact</Link>
                 <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-accent/10">Join Session</a>
               </div>
@@ -236,7 +236,7 @@ const Index = () => {
               Join our free Friday sessions and be part of a community committed to professional growth. Get real answers, actionable strategies, and the support you need to succeed.
             </p>
             <Button variant="cta" size="xl" asChild>
-              <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+              <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer">
                 <Calendar className="w-5 h-5 mr-2" />
                 Join Weekly Free Session
               </a>

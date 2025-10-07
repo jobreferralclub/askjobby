@@ -50,7 +50,7 @@ const About = () => {
             <Link to="/" className="text-foreground/80 hover:text-primary transition-smooth">Home</Link>
             <Link to="/about" className="text-primary font-semibold">About</Link>
             <Link to="/career-tips" className="text-foreground/80 hover:text-primary transition-smooth">Career Tips</Link>
-            <Link to="/pre-sessions" className="text-foreground/80 hover:text-primary transition-smooth">Pre Sessions</Link>
+            <Link to="/past-sessions" className="text-foreground/80 hover:text-primary transition-smooth">Past Sessions</Link>
             <Link to="/contact" className="text-foreground/80 hover:text-primary transition-smooth">Contact</Link>
           </nav>
           <div className="md:hidden">
@@ -60,7 +60,7 @@ const About = () => {
                 <Link to="/" className="px-4 py-2 hover:bg-accent/10">Home</Link>
                 <Link to="/about" className="px-4 py-2 hover:bg-accent/10">About</Link>
                 <Link to="/career-tips" className="px-4 py-2 hover:bg-accent/10">Career Tips</Link>
-                <Link to="/pre-sessions" className="px-4 py-2 hover:bg-accent/10">Pre Sessions</Link>
+                <Link to="/past-sessions" className="px-4 py-2 hover:bg-accent/10">Past Sessions</Link>
                 <Link to="/contact" className="px-4 py-2 hover:bg-accent/10">Contact</Link>
                 <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-accent/10">Join Session</a>
               </div>

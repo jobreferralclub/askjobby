@@ -24,8 +24,7 @@ function getStoredItems(): SessionItem[] {
   }
 }
 
-// Deprecated: kept temporarily to avoid import errors if any lingering references exist
-const PreSessions = () => {
+const PastSessions = () => {
   const itemsFromStorage = getStoredItems();
   const fallback: SessionItem[] = [
     { id: "d1", imageUrl: "https://images.unsplash.com/photo-1581093571252-77236a7f62b8?q=80&w=1200&auto=format&fit=crop", linkUrl: "https://tidycal.com/raysaranya/askjobby", date: "01-11-2025" },
@@ -93,7 +92,6 @@ const PreSessions = () => {
             </Link>
             <div className="text-center md:text-right">
               <p className="text-foreground/60 text-sm">© 2025 AskJobby.</p>
-              {/* <p className="text-foreground/50 text-xs mt-1">Weekly free career coaching sessions every Friday</p> */}
             </div>
           </div>
         </div>
@@ -102,6 +100,6 @@ const PreSessions = () => {
   );
 };
 
-export default PreSessions;
+export default PastSessions;
 
 

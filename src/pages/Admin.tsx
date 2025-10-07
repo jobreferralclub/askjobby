@@ -81,7 +81,7 @@ const Admin = () => {
       setImageFile(null);
       setLinkUrl("");
       setDate("");
-      alert("Added to Pre Sessions");
+      alert("Added to Past Sessions");
     };
 
     if (imageFile) {
@@ -131,7 +131,7 @@ const Admin = () => {
             </Card>
           ) : (
             <Card className="p-8 card-gradient card-shadow">
-              <h2 className="text-2xl font-bold mb-6 text-gradient">Add Pre Session</h2>
+              <h2 className="text-2xl font-bold mb-6 text-gradient">Add Past Session</h2>
               <form onSubmit={handleAdd} className="space-y-4">
                 <div>
                   <Label htmlFor="imageFile">Image Upload</Label>
