@@ -9,10 +9,12 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Dark Navy Blue & Gold Professional Theme */
-    --background: 215 28% 7%;
+    /* Override background to requested #0e0544 (HSL approx 249,88%,15%) */
+    --background: 249 88% 15%;
     --foreground: 48 96% 89%;
 
-    --card: 215 25% 10%;
+    /* Cards: #140848 */
+    --card: 252 81% 15%;
     --card-foreground: 48 96% 89%;
 
     --popover: 215 25% 10%;
@@ -45,8 +47,10 @@ All colors MUST be HSL.
 
     /* Custom Design Tokens */
     --gradient-primary: linear-gradient(135deg, hsl(48 96% 65%), hsl(48 100% 75%));
-    --gradient-hero: linear-gradient(135deg, hsl(215 28% 7%), hsl(215 35% 12%));
-    --gradient-card: linear-gradient(145deg, hsl(215 25% 10%), hsl(215 30% 12%));
+    /* Hero overlay solid #0e0544 */
+    --gradient-hero: linear-gradient(0deg, hsl(249 88% 15%), hsl(249 88% 15%));
+    /* Card gradient using #140848 subtle tint */
+    --gradient-card: linear-gradient(145deg, hsl(252 81% 15%), hsl(252 60% 20%));
     
     --shadow-glow: 0 0 40px hsl(48 96% 65% / 0.3);
     --shadow-elegant: 0 10px 30px -10px hsl(48 96% 65% / 0.2);
@@ -75,10 +79,10 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Same as root since we're using dark theme by default */
-    --background: 215 28% 7%;
+    /* Match requested theme in dark mode too */
+    --background: 249 88% 15%;
     --foreground: 48 96% 89%;
-    --card: 215 25% 10%;
+    --card: 252 81% 15%;
     --card-foreground: 48 96% 89%;
     --popover: 215 25% 10%;
     --popover-foreground: 48 96% 89%;

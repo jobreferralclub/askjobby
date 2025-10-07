@@ -5,8 +5,21 @@ import { Star, Users, Clock, Award, TrendingUp, CheckCircle, Calendar, Heart, Sp
 import askJobbyLogo from "@/assets/askjobby-logo.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    // Always append a fresh script to ensure execution after the embed div mounts
+    const s = document.createElement('script');
+    s.src = `https://asset-tidycal.b-cdn.net/js/embed.js?ts=${Date.now()}`;
+    s.async = true;
+    document.body.appendChild(s);
+    return () => {
+      try {
+        document.body.removeChild(s);
+      } catch {}
+    };
+  }, []);
   const whyFreeReasons = [
     {
       icon: <Heart className="w-6 h-6" />,
@@ -52,10 +65,24 @@ const Index = () => {
             <Link to="/" className="text-primary font-semibold">Home</Link>
             <Link to="/about" className="text-foreground/80 hover:text-primary transition-smooth">About</Link>
             <Link to="/career-tips" className="text-foreground/80 hover:text-primary transition-smooth">Career Tips</Link>
+            <Link to="/pre-sessions" className="text-foreground/80 hover:text-primary transition-smooth">Pre Sessions</Link>
             <Link to="/contact" className="text-foreground/80 hover:text-primary transition-smooth">Contact</Link>
           </nav>
+          <div className="md:hidden">
+            <details className="relative">
+              <summary className="list-none cursor-pointer px-3 py-2 rounded-md bg-secondary text-secondary-foreground">Menu</summary>
+              <div className="absolute right-0 mt-2 w-48 rounded-md border border-border bg-background shadow-lg flex flex-col">
+                <Link to="/" className="px-4 py-2 hover:bg-accent/10">Home</Link>
+                <Link to="/about" className="px-4 py-2 hover:bg-accent/10">About</Link>
+                <Link to="/career-tips" className="px-4 py-2 hover:bg-accent/10">Career Tips</Link>
+                <Link to="/pre-sessions" className="px-4 py-2 hover:bg-accent/10">Pre Sessions</Link>
+                <Link to="/contact" className="px-4 py-2 hover:bg-accent/10">Contact</Link>
+                <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-accent/10">Join Session</a>
+              </div>
+            </details>
+          </div>
           <Button variant="hero" size="sm" asChild>
-            <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+            <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer">
               Join Session
             </a>
           </Button>
@@ -73,7 +100,7 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-4 text-center pt-24 md:pt-32">
           <div className="animate-fade-in">
             <div className="mb-8">
-              <img src={askJobbyLogo} alt="AskJobby" className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full animate-float glow-effect" />
+              <img src={askJobbyLogo} alt="AskJobby" className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full animate-float" />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="text-gradient">AskJobby</span>
@@ -81,12 +108,13 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-foreground/90 mb-4 max-w-3xl mx-auto">
               Free Weekly Career Coaching Sessions Every Friday
             </p>
-            <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
-              Join our live online sessions where we share career tips, guidance, and answer your questions in real-time. Transform your professional journey with expert insights and a supportive community.
+            <p className="text-lg text-foreground/70 mb-2 max-w-2xl mx-auto">
+              Join our live online sessions where we cover key areas to boost your career: 1. Resume Review, 2. How to Get Shortlisted, 3. Interview Preparation, 4. Top 10 Jobs of the Week.
             </p>
+            <p className="text-base md:text-lg font-semibold text-primary/90 mb-8">Fridays • 7:30 AM PST • 10:30 AM EST • 8:00 PM IST</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="cta" size="xl" asChild>
-                <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+                <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer">
                   <Calendar className="w-5 h-5 mr-2" />
                   Join Weekly Free Session
                 </a>
@@ -106,6 +134,19 @@ const Index = () => {
                 <span>Expert Guidance</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Embed */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto rounded-xl card-gradient card-shadow p-6 md:p-10 border border-border">
+            <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gradient text-center">Book Your Spot</h3>
+            <p className="text-center text-primary font-semibold mb-6">Fridays • 7:30 AM PST • 10:30 AM EST • 8:00 PM IST</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: `<div class="tidycal-embed" data-path="raysaranya/askjobby"></div><script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>` }}
+            />
           </div>
         </div>
       </section>
@@ -147,7 +188,7 @@ const Index = () => {
                   <div className="text-3xl font-bold text-gradient mb-2">100% Free</div>
                   <p className="text-sm text-foreground/60 mb-6">No hidden costs, ever</p>
                   <Button variant="cta" size="lg" className="w-full" asChild>
-                    <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer">
                       Register Now
                     </a>
                   </Button>
@@ -217,10 +258,7 @@ const Index = () => {
             </Link>
             <div className="text-center md:text-right">
               <p className="text-foreground/60 text-sm">
-                © 2024 AskJobby. Empowering careers worldwide.
-              </p>
-              <p className="text-foreground/50 text-xs mt-1">
-                Weekly free career coaching sessions every Friday
+                © 2025 AskJobby.
               </p>
             </div>
           </div>

@@ -43,10 +43,24 @@ const Contact = () => {
             <Link to="/" className="text-foreground/80 hover:text-primary transition-smooth">Home</Link>
             <Link to="/about" className="text-foreground/80 hover:text-primary transition-smooth">About</Link>
             <Link to="/career-tips" className="text-foreground/80 hover:text-primary transition-smooth">Career Tips</Link>
+            <Link to="/pre-sessions" className="text-foreground/80 hover:text-primary transition-smooth">Pre Sessions</Link>
             <Link to="/contact" className="text-primary font-semibold">Contact</Link>
           </nav>
+          <div className="md:hidden">
+            <details className="relative">
+              <summary className="list-none cursor-pointer px-3 py-2 rounded-md bg-secondary text-secondary-foreground">Menu</summary>
+              <div className="absolute right-0 mt-2 w-48 rounded-md border border-border bg-background shadow-lg flex flex-col">
+                <Link to="/" className="px-4 py-2 hover:bg-accent/10">Home</Link>
+                <Link to="/about" className="px-4 py-2 hover:bg-accent/10">About</Link>
+                <Link to="/career-tips" className="px-4 py-2 hover:bg-accent/10">Career Tips</Link>
+                <Link to="/pre-sessions" className="px-4 py-2 hover:bg-accent/10">Pre Sessions</Link>
+                <Link to="/contact" className="px-4 py-2 hover:bg-accent/10">Contact</Link>
+                <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-accent/10">Join Session</a>
+              </div>
+            </details>
+          </div>
           <Button variant="hero" size="sm" asChild>
-            <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+            <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer">
               Join Session
             </a>
           </Button>
@@ -61,10 +75,11 @@ const Contact = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
               Let's Connect
             </h1>
-            <p className="text-lg text-foreground/80 leading-relaxed">
+            <p className="text-lg text-foreground/80 leading-relaxed mb-2">
               Have questions about our weekly sessions or need career guidance? 
               We're here to help you navigate your professional journey.
             </p>
+            <p className="text-base md:text-lg font-semibold text-primary/90">Fridays • 7:30 AM PST • 10:30 AM EST • 8:00 PM IST</p>
           </div>
         </div>
       </section>
@@ -106,7 +121,7 @@ const Contact = () => {
                     ask questions, and connect with professionals on their career journey.
                   </p>
                   <Button variant="cta" size="lg" asChild className="w-full">
-                    <a href="https://www.linkedin.com/in/raysaranya/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://tidycal.com/raysaranya/askjobby" target="_blank" rel="noopener noreferrer">
                       Register Now
                     </a>
                   </Button>
@@ -149,10 +164,11 @@ const Contact = () => {
               Live career coaching sessions every Friday. We cover career guidance, 
               answer your questions, and provide actionable strategies for professional growth.
             </p>
-            <div className="inline-flex items-center space-x-2 text-foreground/70">
+            <div className="inline-flex items-center space-x-2 text-foreground/70 mb-2">
               <Calendar className="w-5 h-5 text-primary" />
               <span className="font-semibold">Every Friday</span>
             </div>
+            <p className="text-base md:text-lg font-semibold text-primary/90">7:30 AM PST • 10:30 AM EST • 8:00 PM IST</p>
           </Card>
         </div>
       </section>
@@ -167,10 +183,7 @@ const Contact = () => {
             </Link>
             <div className="text-center md:text-right">
               <p className="text-foreground/60 text-sm">
-                © 2024 AskJobby. Empowering careers worldwide.
-              </p>
-              <p className="text-foreground/50 text-xs mt-1">
-                Weekly free career coaching sessions every Friday
+                © 2025 AskJobby.
               </p>
             </div>
           </div>
