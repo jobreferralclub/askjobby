@@ -1,13 +1,42 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+// Declare TidyCal global for TypeScript
+declare global {
+  interface Window {
+    TidyCal?: {
+      init: () => void;
+    };
+  }
+}
 
 const BookSession = () => {
+  const embedRef = useRef(null);
+
   useEffect(() => {
-    const existing = document.querySelector('script[src="https://asset-tidycal.b-cdn.net/js/embed.js"]');
-    if (!existing) {
-      const s = document.createElement("script");
-      s.src = "https://asset-tidycal.b-cdn.net/js/embed.js";
-      s.async = true;
-      document.body.appendChild(s);
+    // Load script if not already loaded
+    if (!document.querySelector('script[src="https://asset-tidycal.b-cdn.net/js/embed.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://asset-tidycal.b-cdn.net/js/embed.js";
+      script.async = true;
+      script.onload = () => {
+        console.log('TidyCal script loaded');
+        // Wait for DOM to be fully ready
+        setTimeout(() => {
+          if (window.TidyCal && typeof window.TidyCal.init === 'function') {
+            console.log('Initializing TidyCal...');
+            window.TidyCal.init();
+          }
+        }, 1000);
+      };
+      document.body.appendChild(script);
+    } else {
+      // Script already loaded, try to initialize after a delay
+      setTimeout(() => {
+        if (window.TidyCal && typeof window.TidyCal.init === 'function') {
+          console.log('Initializing TidyCal...');
+          window.TidyCal.init();
+        }
+      }, 1000);
     }
   }, []);
 
@@ -17,7 +46,9 @@ const BookSession = () => {
         <h1 style={{ fontSize: 36, fontWeight: 800, marginBottom: 12 }}>Book Your Session</h1>
         <p style={{ opacity: 0.8, marginBottom: 24 }}>Fridays • 7:30 AM PST • 10:30 AM EST • 8:00 PM IST</p>
         <div
-          dangerouslySetInnerHTML={{ __html: `<div class="tidycal-embed" data-path="raysaranya/askjobby"></div><script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>` }}
+          ref={embedRef}
+          className="tidycal-embed"
+          data-path="raysaranya/askjobby"
         />
       </div>
     </div>
@@ -25,5 +56,3 @@ const BookSession = () => {
 };
 
 export default BookSession;
-
-

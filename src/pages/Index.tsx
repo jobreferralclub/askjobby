@@ -5,21 +5,72 @@ import { Star, Users, Clock, Award, TrendingUp, CheckCircle, Calendar, Heart, Sp
 import askJobbyLogo from "@/assets/askjobby-logo.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+// Declare TidyCal global for TypeScript
+declare global {
+  interface Window {
+    TidyCal?: {
+      init: () => void;
+    };
+  }
+}
 
 const Index = () => {
+  const embedRef = useRef(null);
+
   useEffect(() => {
-    // Always append a fresh script to ensure execution after the embed div mounts
-    const s = document.createElement('script');
-    s.src = `https://asset-tidycal.b-cdn.net/js/embed.js?ts=${Date.now()}`;
-    s.async = true;
-    document.body.appendChild(s);
+    // Clean up any existing TidyCal instances
+    const existingIframes = document.querySelectorAll('iframe[src*="tidycal"]');
+    existingIframes.forEach(iframe => iframe.remove());
+    
+    // Remove existing script to force fresh load
+    const existingScript = document.querySelector('script[src*="tidycal"]');
+    if (existingScript) {
+      existingScript.remove();
+    }
+    
+    // Clear TidyCal from window
+    if (window.TidyCal) {
+      delete window.TidyCal;
+    }
+
+    // Add cache-busting parameter
+    const timestamp = new Date().getTime();
+    const script = document.createElement("script");
+    script.src = `https://asset-tidycal.b-cdn.net/js/embed.js?v=${timestamp}`;
+    script.async = true;
+    script.onload = () => {
+      console.log('TidyCal script loaded');
+      // Wait for DOM to be fully ready and check if element exists
+      const checkAndInit = () => {
+        if (embedRef.current && window.TidyCal && typeof window.TidyCal.init === 'function') {
+          console.log('Initializing TidyCal...');
+          try {
+            window.TidyCal.init();
+            console.log('TidyCal initialized successfully');
+          } catch (error) {
+            console.error('Error initializing TidyCal:', error);
+          }
+        } else {
+          console.log('Waiting for embed element...');
+          setTimeout(checkAndInit, 500);
+        }
+      };
+      setTimeout(checkAndInit, 100);
+    };
+    script.onerror = () => {
+      console.error('Failed to load TidyCal script');
+    };
+    document.body.appendChild(script);
+
+    // Cleanup on unmount
     return () => {
-      try {
-        document.body.removeChild(s);
-      } catch {}
+      const iframes = document.querySelectorAll('iframe[src*="tidycal"]');
+      iframes.forEach(iframe => iframe.remove());
     };
   }, []);
+
   const whyFreeReasons = [
     {
       icon: <Heart className="w-6 h-6" />,
@@ -139,17 +190,19 @@ const Index = () => {
       </section>
 
       {/* Booking Embed */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto rounded-xl card-gradient card-shadow p-6 md:p-10 border border-border">
-            <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gradient text-center">Book Your Spot</h3>
-            <p className="text-center text-primary font-semibold mb-6">Fridays • 7:30 AM PST • 10:30 AM EST • 8:00 PM IST</p>
-            <div
-              dangerouslySetInnerHTML={{ __html: `<div class="tidycal-embed" data-path="raysaranya/askjobby"></div><script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>` }}
-            />
-          </div>
-        </div>
-      </section>
+<section className="py-16">
+  <div className="container mx-auto px-4">
+    <div className="max-w-5xl mx-auto rounded-xl card-gradient card-shadow p-6 md:p-10 border border-border">
+      <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gradient text-center">Book Your Spot</h3>
+      <p className="text-center text-primary font-semibold mb-6">Fridays • 7:30 AM PST • 10:30 AM EST • 8:00 PM IST</p>
+      <div
+        ref={embedRef}
+        className="tidycal-embed"
+        data-path="raysaranya/askjobby"
+      />
+    </div>
+  </div>
+</section>
 
       {/* Weekly Session Section */}
       <section id="about" className="py-20 bg-card/30">
